@@ -4,13 +4,13 @@
 Представь: тебе нужно проверить, отображается ли созданный заказ в базе данных.
 Для этого: выведи список логинов курьеров с количеством их заказов в статусе «В доставке» (поле inDelivery = true). 
 
-
+```sql
 SELECT c.login, Count(o.id) AS "deliveryCount" 
 FROM "Couriers" AS c 
 LEFT JOIN "Orders" AS o ON c.id = o."courierId"
 WHERE o."inDelivery" = true
 Group BY c.login;
-
+```
 
 ![image](https://github.com/user-attachments/assets/08e5935c-a1a3-47e5-8149-8122308898a1)
 
@@ -24,7 +24,7 @@ Group BY c.login;
 Если поле inDelivery == true, то вывести статус 1.
 Для остальных случаев вывести 0.
 
-
+```sql
 SELECT track, 
     CASE 
         WHEN finished = true THEN 2 
@@ -32,7 +32,7 @@ SELECT track,
         WHEN "inDelivery" = true THEN 1 
         ELSE 0 END AS status 
 FROM "Orders";
-
+```
 
 
 ![image](https://github.com/user-attachments/assets/9565d6c6-2ac9-4a80-ba41-18eda357119c)
